@@ -1,0 +1,236 @@
+/* font-family: 'Inconsolata', monospace;
+
+font-family: 'Russo One', sans-serif;
+
+font-family: 'Yellowtail', cursive; */
+
+:root{
+    --border: #ffff;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    max-width: 100vw;
+    overflow-x: hidden ;
+    min-height: 100vh;
+    color: #ffff;
+}
+.container{
+    background: linear-gradient(90deg,#033657,#de69d1);
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 3fr 3fr;
+    grid-template-rows: repeat(8,1fr);
+    overflow-y: scroll;
+}
+
+.logo{
+    grid-column: 1/2;
+    grid-row: 1/1;
+    padding: 1.5rem;
+    font-size: 1.5rem;
+    font-family: 'Yellowtail', cursive;
+}
+
+.menu-section{
+grid-column: 2/3;
+grid-row: 1/6;
+position: relative;
+border-left: 2px solid var(--border);
+display: flex;
+align-items: center;
+padding:0 2rem;
+}
+.mini-model{
+    grid-column: 1/1;
+    grid-row: 6/-1;
+    border-top: 2px solid var(--border);
+}
+.big-model{
+    grid-column: 3/-1;
+    grid-row: 1/-1;
+}
+.page-about{
+    grid-column: 2/3;
+    grid-row: 6/7;
+    border-bottom: 2px solid var(--border);
+    border-top: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+.model-about{
+grid-column: 2/3;
+grid-row:7/-1;
+padding: 1rem 2rem;
+position: relative;
+justify-self: start;
+}
+.control{
+    grid-row: 2/6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.control-line{
+    width: 4px;
+    height: 40px;
+    background-color: #fff;
+    transition: background-color .2s ease;
+    cursor: pointer;
+}
+.control-line.active{
+    background-color: #de69d1 ;
+    width: 6px;
+}
+.line{
+    grid-row: 6/-1;
+    grid-column: 3/-1;
+    border-top: 2px solid var(--border);
+}
+
+img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all .25s ease-in-out;
+}
+
+
+.circles{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%,0);
+}
+.circle{
+    border: 3px solid var(--border);
+    border-radius: 50%;
+}
+
+.circle-big{
+    width: 20vw;
+    height: 20vw;
+    position: relative;
+}
+.circle-mini{
+    width: 15vw;
+    height: 15vw;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.title{
+    font-size: 3rem;
+}
+.title-v-3{
+    font-family: 'Inconsolata', monospace;
+}
+.title-v-2{
+    font-family: 'Russo One', sans-serif;
+    font-size: 2.5rem;
+}
+.title-v-1{
+    font-family: 'Yellowtail', cursive;
+    font-size: 4rem;
+}
+
+/* page about */
+
+ button{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    margin-left: 10rem;
+}
+
+button i{
+    color: #fff;
+}
+.model-about{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    font-family: 'Inconsolata', monospace;
+
+}
+
+/* model number */
+.model-number{
+    
+    font-family:  cursive;
+    margin-left: 2rem;
+    font-size: 1.5rem;
+}
+.model-about-text{
+    max-width: 250px;
+}
+
+
+
+
+@media only screen and (max-width: 900px) {
+    
+    .logo{
+        grid-column: 1/2;
+        grid-row: 1/1;
+        z-index: 100;
+    }
+        .mini-model{
+            display: none;
+        }
+        .big-model{
+            grid-column: 1/-1;
+            grid-row: 1/-1;
+        }
+        
+        .page-about{
+            
+            /*border-top: 2px solid var(--border); */
+            border: none;
+            border-bottom: 2px solid var(--border);
+        }
+        .model-about{
+            grid-column: 3/-1;
+        }
+  }
+@media only screen and (max-width: 900px) {
+    .logo{
+        grid-column: 3/-1;
+        grid-row: 1/1;
+        justify-self: end;
+    }
+    
+    .menu-section{
+        grid-column: 1/-1;
+        grid-row: 1/4;
+        }
+        .mini-model{
+            display: none;
+        }
+       
+        .page-about{
+            grid-row: 6/7 ;
+            /*border-top: 2px solid var(--border); */
+            border: none;
+            border-bottom: 2px solid var(--border);
+        }
+        .model-about{
+            grid-column: 1/-1;
+            grid-row: 8/-1;
+        }
+        .control{
+            grid-column: 3/-1;
+            grid-row: 5/-1;
+            z-index: 100;
+        }
+  }
